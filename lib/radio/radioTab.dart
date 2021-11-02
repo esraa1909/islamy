@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class Radio extends StatelessWidget {
+class RadioTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.red,
+      color: Colors.green,
     );
   }
 }

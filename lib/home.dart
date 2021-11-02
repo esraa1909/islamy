@@ -39,16 +39,16 @@ class HomeScreenState extends State<HomeScreen> {
                   currentIndex: currentIndex,
                   items: [
                     BottomNavigationBarItem(
-                        icon: ImageIcon(AssetImage('radio_blue.png')),
+                        icon: ImageIcon(AssetImage('asset/image/radio_blue.png')),
                         label: 'radio'),
                     BottomNavigationBarItem(
-                        icon: ImageIcon(AssetImage('sebha_blue.png')),
+                        icon: ImageIcon(AssetImage('asset/image/sebha_blue.png')),
                         label: 'sebha'),
                     BottomNavigationBarItem(
-                        icon: ImageIcon(AssetImage('Path.png')),
+                        icon: ImageIcon(AssetImage('asset/image/Path.png')),
                         label: 'quran'),
                     BottomNavigationBarItem(
-                        icon: ImageIcon(AssetImage('moshaf_blue.png')),
+                        icon: ImageIcon(AssetImage('asset/image/moshaf_blue.png')),
                         label: 'moshaf'),
 
                   ],

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:islamy/quran/suraDetails.dart';
 
+import 'hadeth/hadethDetails.dart';
 import 'home.dart';
 
 void main() {
@@ -19,7 +20,7 @@ class MyThemeData{
           elevation: 0,
           iconTheme:IconThemeData(color: Colors.black),
           centerTitle: true,
-          titleTextStyle: TextStyle(color: Colors.black,fontSize: 30)
+          titleTextStyle: TextStyle(color: Colors.black,fontSize: 33)
       ),
 
 
@@ -53,6 +54,7 @@ class MyApp extends StatelessWidget {
       routes: {
         HomeScreen.routeName:(BuildContext context)=>HomeScreen(),
         SuraDetials.routeName:(BuildContext context)=>SuraDetials(),
+        HadethDetails.routeName:(BuildContext context)=>HadethDetails(),
 
       },
       initialRoute: HomeScreen.routeName,

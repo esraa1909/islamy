@@ -1,11 +1,87 @@
 import 'package:flutter/material.dart';
+import 'package:islamy/main.dart';
+import 'package:islamy/quran/quranTabe.dart';
+import 'package:islamy/radio/radioTab.dart';
+import 'package:islamy/sebha/sebhaTab.dart';
 
-class HomeScreen extends StatelessWidget {
+import 'hadeth/hadeth.dart';
+
+class HomeScreen extends StatefulWidget {
   static const String routeName='home';
 
-  Widget build(BuildContext context) {
-    return Scaffold(
 
+  State<HomeScreen> createState() => HomeScreenState();
+}
+
+class HomeScreenState extends State<HomeScreen> {
+  int currentIndex = 0;
+
+  Widget build(BuildContext context) {
+    return Stack(
+
+        children: [
+          Image.asset('asset/image/bg3@3x.png',
+          fit: BoxFit.fill,  width: double.infinity,),
+
+          Scaffold(
+              appBar: AppBar(
+                title: Text('إسلامي'),
+              ),
+              bottomNavigationBar: Theme(
+                data: Theme.of(context).copyWith(
+                    canvasColor: MyThemeData.PrimaryColor
+                ),
+                child: BottomNavigationBar(
+                  onTap: (index) {
+                    currentIndex = index;
+                    setState(() {
+
+                    });
+                  },
+
+                  currentIndex: currentIndex,
+                  items: [
+                    BottomNavigationBarItem(
+                        icon: ImageIcon(AssetImage('asset/image/radio_blue.png')),
+                        label: 'radio'),
+                    BottomNavigationBarItem(
+                        icon: ImageIcon(AssetImage('asset/image/sebha_blue.png')),
+                        label: 'sebha'),
+                    BottomNavigationBarItem(
+                        icon: ImageIcon(AssetImage('asset/image/Path.png')),
+                        label: 'quran'),
+                    BottomNavigationBarItem(
+                        icon: ImageIcon(AssetImage('asset/image/moshaf_blue.png')),
+                        label: 'hadeth'),
+
+                  ],
+                ),
+              ),
+
+              body: Container(
+
+                child: getMianView()
+                ,
+              )
+
+          ),
+        ]
     );
+  }
+
+  Widget getMianView() {
+    if (currentIndex == 0) {
+      return RadioTab();
+    }
+
+    else if (currentIndex == 1) {
+      return Sebha();
+    }
+    else if (currentIndex == 2) {
+      return Quran();
+    }
+    else {
+      return Hadeth();
+    }
   }
 }

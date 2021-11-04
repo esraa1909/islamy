@@ -17,6 +17,7 @@ class HomeScreenState extends State<HomeScreen> {
   int currentIndex = 0;
 
   Widget build(BuildContext context) {
+
     return Stack(
 
         children: [
@@ -24,6 +25,7 @@ class HomeScreenState extends State<HomeScreen> {
           fit: BoxFit.fill,  width: double.infinity,),
 
           Scaffold(
+
               appBar: AppBar(
                 title: Text('إسلامي'),
               ),

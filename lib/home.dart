@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:islamy/main.dart';
-import 'package:islamy/moshaf/moshafTab.dart';
 import 'package:islamy/quran/quranTabe.dart';
 import 'package:islamy/radio/radioTab.dart';
 import 'package:islamy/sebha/sebhaTab.dart';
+
+import 'hadeth/hadeth.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routeName='home';
@@ -24,7 +25,7 @@ class HomeScreenState extends State<HomeScreen> {
 
           Scaffold(
               appBar: AppBar(
-                title: Text('islami'),
+                title: Text('إسلامي'),
               ),
               bottomNavigationBar: Theme(
                 data: Theme.of(context).copyWith(
@@ -51,7 +52,7 @@ class HomeScreenState extends State<HomeScreen> {
                         label: 'quran'),
                     BottomNavigationBarItem(
                         icon: ImageIcon(AssetImage('asset/image/moshaf_blue.png')),
-                        label: 'moshaf'),
+                        label: 'hadeth'),
 
                   ],
                 ),
@@ -80,7 +81,7 @@ class HomeScreenState extends State<HomeScreen> {
       return Quran();
     }
     else {
-      return Moshaf();
+      return Hadeth();
     }
   }
 }

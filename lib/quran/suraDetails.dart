@@ -64,9 +64,9 @@ class _SuraDetialsState extends State<SuraDetials> {
   }
 
   void readSura(int index) async{
-
     //open fil and read it index+1.text
-    String filsName =' asset/fils/${index+1}.txt';
+
+    String filsName =('asset/fils/${index+1}.txt');
     String filContent = await rootBundle.loadString(filsName);
     List<String>ayat= filContent.split('\n');
     verses=ayat;

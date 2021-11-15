@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:islamy/main.dart';
+import 'package:islamy/provider/AddConfigProvider.dart';
 import 'package:islamy/quran/suraName.dart';
+import 'package:provider/provider.dart';
 
 class Quran extends StatelessWidget {
 
@@ -14,6 +17,9 @@ class Quran extends StatelessWidget {
   ,"التين","العلق","القدر","البينة","الزلزلة","العاديات","القارعة","التكاثر","العصر",
   "الهمزة","الفيل","قريش","الماعون","الكوثر","الكافرون","النصر","المسد","الإخلاص","الفلق","الناس"];
   Widget build(BuildContext context) {
+
+    var provider=Provider.of<AppConfigProvider>(context);
+
     return Column(
       children:[
         Expanded(
@@ -39,7 +45,7 @@ class Quran extends StatelessWidget {
       return Container(
 
       height: 1,
-      color: Theme.of(context).primaryColor,
+      color:provider.isDarkMode()?MyThemeData.accentColorD:MyThemeData.PrimaryColor,
     margin: EdgeInsets.symmetric(horizontal: 24),
       );
     },

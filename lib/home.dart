@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:islamy/main.dart';
+import 'package:islamy/provider/AddConfigProvider.dart';
 import 'package:islamy/quran/quranTabe.dart';
 import 'package:islamy/radio/radioTab.dart';
 import 'package:islamy/sebha/sebhaTab.dart';
-
+import 'package:islamy/settings/settingsTab.dart';
+import 'package:provider/provider.dart';
 import 'hadeth/hadeth.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -16,12 +18,16 @@ class HomeScreen extends StatefulWidget {
 class HomeScreenState extends State<HomeScreen> {
   int currentIndex = 0;
 
+
   Widget build(BuildContext context) {
+    var provider=Provider.of<AppConfigProvider>(context);
 
     return Stack(
 
         children: [
-          Image.asset('asset/image/bg3@3x.png',
+          Image.asset(
+            provider.isDarkMode()?
+            'asset/image/bg3@3x.png':'asset/image/mode.png',
           fit: BoxFit.fill,  width: double.infinity,),
 
           Scaffold(
@@ -31,8 +37,8 @@ class HomeScreenState extends State<HomeScreen> {
               ),
               bottomNavigationBar: Theme(
                 data: Theme.of(context).copyWith(
-                    canvasColor: MyThemeData.PrimaryColor
-                ),
+                    canvasColor: Theme.of(context).primaryColor),
+
                 child: BottomNavigationBar(
                   onTap: (index) {
                     currentIndex = index;
@@ -55,6 +61,8 @@ class HomeScreenState extends State<HomeScreen> {
                     BottomNavigationBarItem(
                         icon: ImageIcon(AssetImage('asset/image/moshaf_blue.png')),
                         label: 'hadeth'),
+                    BottomNavigationBarItem(icon: Icon(Icons.settings),label: 'settings')
+
 
                   ],
                 ),
@@ -82,8 +90,11 @@ class HomeScreenState extends State<HomeScreen> {
     else if (currentIndex == 2) {
       return Quran();
     }
-    else {
+    else if  (currentIndex == 3) {
       return Hadeth();
     }
+    else    {
+      return SettingsTab();
   }
+}
 }

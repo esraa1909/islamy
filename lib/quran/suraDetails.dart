@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:islamy/main.dart';
+import 'package:islamy/provider/AddConfigProvider.dart';
 import 'package:islamy/quran/vers.dart';
+import 'package:provider/provider.dart';
 
 class SuraDetials extends StatefulWidget {
  static const String routeName='soura';
@@ -13,6 +16,8 @@ class _SuraDetialsState extends State<SuraDetials> {
  List<String>verses=[];
 
   Widget build(BuildContext context) {
+    var provider=Provider.of<AppConfigProvider>(context);
+
     var args=ModalRoute.of(context)!.settings.arguments as SuraDetailsArgs;
     if (verses.isEmpty){
 
@@ -21,7 +26,10 @@ class _SuraDetialsState extends State<SuraDetials> {
     return Stack(
 
       children: [
-      Image.asset('asset/image/bg3@3x.png',
+
+      Image.asset(
+        provider.isDarkMode()?
+        'asset/image/bg3@3x.png':'asset/image/mode.png',
       fit: BoxFit.fill,  width: double.infinity,),
 
     Scaffold(
@@ -50,7 +58,7 @@ class _SuraDetialsState extends State<SuraDetials> {
             return Container(
 
               height: 1,
-              color: Theme.of(context).primaryColor,
+              color: provider.isDarkMode()?MyThemeData.accentColorD:MyThemeData.PrimaryColor,
               margin: EdgeInsets.symmetric(horizontal: 24),
             );
           },
